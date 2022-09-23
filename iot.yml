@@ -1,0 +1,8 @@
+---
+all:
+  prodmon: 
+    tl01: '10.6.8.43'
+  firewall:
+      fwp: '10.7.2.52'
+    tl02:
+      fws:
