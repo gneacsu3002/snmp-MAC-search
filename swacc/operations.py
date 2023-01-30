@@ -31,7 +31,14 @@ def findport(*args, **kwargs):
     print('%s at %s' % (errStat.prettyPrint(), errIndx and varBinds[int(errIndx) - 1][0] or '?'))
   else:
     for varBind in varBinds:
-        print(' = '.join([x.prettyPrint() for x in varBind]))
+        port = [x.prettyPrint() for x in varBind]
+        # port = varBind[0].split("=")
+        if "No Such" in port[1]:
+          port = "device not known"
+        else:
+          port = f" port {port[1]}"
+        print(f"sw: {kwargs['ip']} = {port}")
+        # print(' = '.join([x.prettyPrint() for x in varBind]))
 
 @decorators.applyOP
 @decorators.decoDbg
